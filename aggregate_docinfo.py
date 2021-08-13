@@ -26,7 +26,7 @@ def get_doc_info_from_file_list(file_list: List[Path]) -> Dict[str, List[DocInfo
     out = {}
     for f in file_list:
         with f.open("r") as fp:
-            out[f.stem()] = parse(fp.read())
+            out[f.stem] = parse(fp.read())
 
     return out
 

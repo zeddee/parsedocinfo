@@ -25,7 +25,8 @@ def get_rst_from_single_dir(dir_path: str) -> List[Path]:
 def get_doc_info_from_file_list(file_list: List[Path]) -> Dict[str, List[DocInfo]]:
     out = {}
     for f in file_list:
-        out[f.stem()] = parse(f)
+        with f.open("r") as fp:
+            out[f.stem()] = parse(fp.read())
 
     return out
 
